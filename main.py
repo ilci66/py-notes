@@ -110,14 +110,60 @@ greeting = '  Hello Stranger  '
 
 # ==> Reading a file
 # fhand = open('C:/users/samsung/desktop/lorem.txt')
-fhand = open('lorem.txt')
-print(fhand)
+# r for reading, w for writing, a for appending
+# fhand = open('lorem.txt', 'r')
+# print(fhand)
+# print(fhand.name)
+
 # for word in fhand:
 #     print(word)
 
-count = 0
-for word in fhand:
-    if word == 'iste':
-        print('found it')
-        count += 1
-print(count)
+# count = 0
+# for word in fhand:
+#     if word == 'iste':
+#         print('found it')
+#         count += 1
+# print(count)
+
+# turns out it's necessary to close the file when you are done with it
+# fhand.close()
+
+# This is apparently called a context manager
+# with open('lorem.txt', 'r') as fhand:
+#     pass
+
+# print(fhand.closed) # returns true 
+
+# ===>>>> there are lots of context manager methods, did a quick search chose something to read later
+# with open('lorem.txt', 'r') as fhand:
+#     fhand_contents = fhand.read()
+#     # print(fhand_contents)
+#     # had to split otherwise loops through the letters, it's really fun :D
+#     spl = fhand_contents.split(" ")
+#     for x in spl:
+#         print(x)
+
+# with open('lorem.txt', 'r') as fhand:
+    # getting both the first and the second line 
+    # fhand_contents = fhand.readline()
+    # print(fhand_contents)
+    # fhand_contents = fhand.readline()
+    # print(fhand_contents)
+
+    # Or I could just loop through like this
+    # for line in fhand:
+    #     print(line, end=' ') # Keeping end here as an example
+
+
+
+# with open('lorem.txt', 'r') as fhand:
+#     # with the first read method we read until 100 charachters
+#     fhand_contents = fhand.read(100)
+#     print("until 100 ==> ",fhand_contents, end=' ')
+#     # The second one start from where it was left off 
+#     fhand_contents = fhand.read(100)
+#     print("more than 100 ==>", fhand_contents, end=' ')
+
+# the input thing is very useful in python, an example:
+# fname = input('Enter the file name: ')
+# fhand = open(fname)
