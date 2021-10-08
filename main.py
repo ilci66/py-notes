@@ -40,7 +40,7 @@
 # print('Done')
 
 nums = [22, 3, 4, 12, 9, 43, 7, 8, 2, 1, 78, 98, 65, 45, 21, 23, 24, 5 ]
-
+# print(22 not in nums)
 # print('before the loop')
 # for x in nums:
 #     # print(x)
@@ -167,3 +167,39 @@ greeting = '  Hello Stranger  '
 # the input thing is very useful in python, an example:
 # fname = input('Enter the file name: ')
 # fhand = open(fname)
+
+
+# fname = input('Enter the file name: ')
+# try:
+#     fhand = open(fname)
+# except:
+#     print("File can't be opened: ", fname)
+#     # without the quit it weould keep going and mess up the rest
+#     # of the code because fhand would be undefined
+#     quit()
+#     # It will terminate the python program without a traeback silently
+
+# count = 0
+# for line in fhand:
+#     if line.startswith('Subject:') :
+#         count += 1
+# print("There were ", count, "subject lines in", fname)
+
+
+# Strings are Immutable, just a reminder, the methods usually 
+# make a copy and alter it 
+
+# ==> The order in which the following is written was interesting 
+# that's why I'm adding it
+# Pretty obvious what it does, after the input is given checks if it's 
+# equal to done before going thorugh the rest of the code
+total = 0 
+count = 0
+while True:
+    inp = input('Enter a number: ')
+    if inp == 'done' : break
+    value = float(inp)
+    total = total + value
+    count = count + 1
+average = total / count
+print('Average:', average)
