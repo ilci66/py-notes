@@ -193,13 +193,186 @@ greeting = '  Hello Stranger  '
 # that's why I'm adding it
 # Pretty obvious what it does, after the input is given checks if it's 
 # equal to done before going thorugh the rest of the code
-total = 0 
-count = 0
-while True:
-    inp = input('Enter a number: ')
-    if inp == 'done' : break
-    value = float(inp)
-    total = total + value
-    count = count + 1
-average = total / count
-print('Average:', average)
+# total = 0 
+# count = 0
+# while True:
+#     inp = input('Enter a number: ')
+#     if inp == 'done' : break
+#     value = float(inp)
+#     total = total + value
+#     count = count + 1
+# average = total / count
+# print('Average:', average)
+
+
+
+# ==> Splitting stuff
+# like in javascript mostly
+# test_string = 'gonna be doing some tests on this string'
+# etc = test_string.split()
+# print(etc)
+# test_string = 'first;second;third'
+# thing = test_string.split()
+# print(thing)
+# print(len(thing))
+# thing = test_string.split(';')
+# print(thing, len(thing))
+
+# ==> dict stuff
+
+# counts = dict()
+# names = ['to', 'ta', 'ke', 'ka', 'te', 'ke', 'ta', 'ke']
+# for name in names:
+#     if name not in counts:
+#         counts[name] = 1
+#     else:
+#         counts[name] = counts[name] + 1
+# print("counts ==> ",counts)
+
+# The pattern of checking to see if a key is in a dictionary and
+# assuming a default value if the key is not there is so common that 
+# there apparently is a method called get() that does this for us
+
+# ==> x = counts.get(name, 0)
+# Using with the example above
+# for name in names:
+#     x = counts.get(name, 0)
+#     print(name,':',x)
+
+# ==> Using toget her for simplicity <==
+# counts = dict()
+# names = ['to', 'ta', 'ke', 'ka', 'te', 'ke', 'ta', 'ke']
+# for name in names: 
+#     # setting a default if there is no value
+#     counts[name] = counts.get(name, 0) + 1 
+# print(counts)
+
+# when I wrote k,v instead of just v; k became the first and the v 
+# became the second value as in [0] and [1] of the keys
+# for k in counts:
+#     print(k, counts[k])
+
+# Another probably python only iteration, using with items() method 
+# don't forget
+# print(counts.items())
+# for k,v in counts.items():
+#     print(k, v)
+
+# print(counts)
+
+# ==> Using the new stuff on a File <===== Nice Stuff 
+# file_name = input('Enter file: ')
+# handle_file = open(file_name)
+
+# counts = dict()
+# for line in handle_file:
+#     words = line.split()
+#     for word in words:
+#         # print("word ==> ", word)
+#         # get the word from dictionary, if it's not there create one with the given default value
+#         counts[word] = counts.get(word, 0) + 1
+
+# big_count = None
+# big_word = None
+# print("Atfer the loop to populate", counts.items())
+# for word, count in counts.items():
+#     print("word ==> ", word, '-' ,"count ==> ", count)
+#     if big_count is None or count > big_count:
+#         big_word = word
+#         big_count = count
+#         print("big word =>>", big_word)
+#         print("big count =>>", big_count)
+
+# print(big_word, big_count)
+
+
+# ==> Tuples are like lists but they are IMMUTABLE
+# contents of a tuple can't be altered, kinda like a string
+# z = ('kek', 'lol', 'jump')
+# z[0] = 'hello' # this would throw an error
+# This is the error ==> 'tuple object does not support item Assignment'
+
+# n = (3, 2, 1)
+# n.sort() # Also throws an error
+# n.append(4) # Also throws an error
+# n.reverse() # Also throws an error
+
+
+# this is possible and the paranthesis can be omitted
+# (x, y) = (4, 'fred') # ==> x, y = 4, 'fred' <== same as that one
+# print(x)
+# y = 6
+# print(y)
+
+# The items() method in dictionaries returns a list of tuples (key value pairs)
+
+# Tuples are al so comparable
+# If the first item is equal it goes to the next one (and so on), until it find an element that differ
+
+# (0, 1, 2) < (3, 4, 5) # This is true
+# (0, 1, 3) < (0, 1, 5) # also true
+# ('kek', 'lol') > ('kek', 'bob') # also true
+# etc.
+
+# ==> Sorting Tuples <==
+
+# dictionaries can be turned into tuples using items() method and those tuples can be sorted easily
+# d = { 'a': 10, 'c': 1, 'b': 22 }
+# d.items()
+# print(d.items())
+# sorted_d = sorted(d.items())
+# # print(d.items(), sorted_d)
+
+# tem_list = list()
+# for k,v in sorted_d:
+#     # print(k, v)
+#     tem_list.append( (v,k) )
+
+# print(tem_list, type(tem_list))
+
+# # Now sorting, reserve=True means keys and values will change place 
+# tem_list = sorted(tem_list, reverse=True)
+# # Now sorted according to the new keys 
+# print(tem_list)
+
+# Now rewriting and sorting my word count with all this info
+# file_name = input('Enter file: ')
+# handle_file = open(file_name)
+
+# counts = dict()
+
+# for line in handle_file:
+#     words = line.split()
+#     for word in words:
+#         counts[word] = counts.get(word, 0) + 1
+
+# lst = list()
+
+# for key, value in counts.items():
+#     # create the new tuples with these key value pairs, reversed here 
+#     newtup = (value, key)
+#     # append the tuples to the lists, example: (5, 'sit')
+#     lst.append(newtup)
+
+# # reversing again (it was reversed up there once) to get the word as key
+# lst = sorted(lst, reverse=True)
+
+# # don't need to get all 
+# for val, key in lst[:10]:
+#     print(key, val)
+
+
+# Even Shorter Version
+c = {'a': 10, 'b':2, 'c':22}
+# Flips keys and values and sorts them inside a list ( "[]" i meant square brackets ) and bascially returns the same result
+print( sorted( [ (v,k) for k,v in c.items() ] ))
+
+
+# >>>>>>>Simple Note<<<<<<<<<<<<
+
+# g = [('a', 2),('b',1)]
+# print(sorted(g))
+# # Simple reminder, when reverse true is added it sorts according to the values not keys, doesn't swap keys and values 
+# print(sorted(g, reverse=True))
+
+# >>>>>>>>>>Note Ends<<<<<<<
