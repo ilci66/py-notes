@@ -363,9 +363,9 @@ greeting = '  Hello Stranger  '
 
 
 # Even Shorter Version
-c = {'a': 10, 'b':2, 'c':22}
+# c = {'a': 10, 'b':2, 'c':22}
 # Flips keys and values and sorts them inside a list ( "[]" i meant square brackets ) and bascially returns the same result
-print( sorted( [ (v,k) for k,v in c.items() ] ))
+# print( sorted( [ (v,k) for k,v in c.items() ] ))
 
 
 # >>>>>>>Simple Note<<<<<<<<<<<<
@@ -376,3 +376,53 @@ print( sorted( [ (v,k) for k,v in c.items() ] ))
 # print(sorted(g, reverse=True))
 
 # >>>>>>>>>>Note Ends<<<<<<<
+
+
+# ==> Regular expressions in python
+# hand = open('lorem.txt')
+# for line in hand:
+#     line = line.rstrip()
+#     if line.find('enim') >= 0:
+#         print(line)
+
+# Gonna do the same using regular expressions
+# import re 
+
+# hand = open('lorem.txt')
+# for line in hand:
+#     line = line.rstrip()
+#     if re.search('enim', line):
+#         print(line)
+
+# I could add the stuff the I have been using in javascript too such as ^, $, ?, ., *, etc. An example for startswith:
+
+# import re 
+
+# hand = open('lorem.txt')
+# for line in hand:
+#     line = line.rstrip()
+#     if re.search('^voluptatem', line):
+#         print(line)
+
+# Or ends with: 
+
+# import re 
+
+# hand = open('lorem.txt')
+# for line in hand:
+#     line = line.rstrip()
+#     if re.search('sit$', line):
+#         print(line)
+
+# ==> Findall 
+import re 
+
+str = 'An example string for regular 22 expressions an 333 example strin 12 g for regular 55 expressionsn example string for regular expressionsn example string for regular expressions'
+x = re.findall('example', str)
+n = re.findall('[0-9]+', str)
+y = re.findall('[AEIOU]+', str)
+e = re.findall('s\w+g', str)
+
+print("x ==>",x, "--" ,"n ==> ", n, "--","y ==> ", y)
+print(e)
+        
