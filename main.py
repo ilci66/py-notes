@@ -422,7 +422,11 @@ x = re.findall('example', str)
 n = re.findall('[0-9]+', str)
 y = re.findall('[AEIOU]+', str)
 e = re.findall('s\w+g', str)
-
+# adding ? this way makes it non greedy
+g = re.findall('s.+?g', str)
+# This is for after s and nont space, the first s in this case is not included
+k = re.findall('s([^ ]*)', str)
 print("x ==>",x, "--" ,"n ==> ", n, "--","y ==> ", y)
-print(e)
+print(e, g)
+print(" ==> k", k)
         
