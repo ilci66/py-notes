@@ -86,7 +86,7 @@ class PartyAnimal:
         self.x = self.x + 1
         print(self.name, 'party count ==>', self.x)
 
-
+# Extending the PartyAnimal class
 class FootballFan(PartyAnimal):
     points = 0
     def touchdown(self):
@@ -104,5 +104,5 @@ j = FootballFan("Jerry")
 j.party()
 j.touchdown()
 j.touchdown()
-j.touchdown()
-j.touchdown()
+
+# print(dir(j))
